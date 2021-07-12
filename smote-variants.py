@@ -20,15 +20,23 @@ import smote_variants
 # Variaveis globais
 dimensaoDeEntrada = (250,250)
 
+
+diretorioBaseDeDados = 'C:\\Users\\lucasoliveira\\OneDrive - Movere Software\\basecerta\\BaseSeparada26032021\\' # Altere para o diretorio em sua maquina
+caminhoImagensSobreamostradas = 'C:\\Users\\lucasoliveira\Desktop\\ImagensSobreamostradas\\'  # Altere para o diretorio em sua maquina
+nomePastaDasImagens = 'train'
+
+
+'''
 diretorioBaseDeDados = 'C:\\Users\\lucasoliveira\Desktop\\' # Altere para o diretorio em sua maquina
 caminhoImagensSobreamostradas = 'C:\\Users\\lucasoliveira\Desktop\\ImagensSobreamostradas\\'  # Altere para o diretorio em sua maquina
 nomePastaDasImagens = 'testevariants'
+'''
 # Carregando a base de dados para a memoria
 diretorioDasImagens = os.path.join(diretorioBaseDeDados, nomePastaDasImagens)
 
 geradorDeDados = ImageDataGenerator(rescale=1./255)
 tamanhoDoLote = 32
-oversample = smote_variants.SMOTE_ENN()
+oversample = smote_variants.polynom_fit_SMOTE()
 # Região de funções auxiliares
 
 def retornaNomeDasPastasPresentesNoDiretorio(path): # Percorre todo diretorio e pega o nome da pasta do arquivo
